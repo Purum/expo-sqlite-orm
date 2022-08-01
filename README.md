@@ -1,3 +1,5 @@
+!!  PRIMARY KEY COULD BE COMPLEX !!
+
 # Expo SQLite ORM
 
 [![Build Status](https://travis-ci.org/dflourusso/expo-sqlite-orm.svg?branch=master)](https://travis-ci.org/dflourusso/expo-sqlite-orm)
