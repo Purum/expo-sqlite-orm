@@ -20,7 +20,6 @@ export function _createTableColumns(columnMapping) {
     })
     .join(', ')
   let res = `${query}, PRIMARY KEY(${primary.join(', ')})`;
-  console.log(res);
   return res;
 }
 
