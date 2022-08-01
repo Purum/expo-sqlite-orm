@@ -4,13 +4,14 @@ export const customTypes = { JSON: 'TEXT' }
  *  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER
  */
 export function _createTableColumns(columnMapping) {
-  return Object.entries(columnMapping)
+  let primary = [];
+  let query = Object.entries(columnMapping)
     .map(i => {
       const type = i[1].type
       const parts = [i[0], customTypes[type] || type]
       if (i[1].primary_key) {
-        parts.push('NOT NULL PRIMARY KEY')
-        if (i[1].autoincrement) parts.push('AUTOINCREMENT')
+        primary.push(i[0]);
+        parts.push('NOT NULL');
       } else {
         if (i[1].unique) parts.push('UNIQUE')
         if (i[1].not_null) parts.push('NOT NULL')
@@ -18,6 +19,9 @@ export function _createTableColumns(columnMapping) {
       return parts.join(' ')
     })
     .join(', ')
+  let res = `${query}, PRIMARY KEY(${primary.join(', ')})`;
+  console.log(res);
+  return res;
 }
 
 // Creates the "CREATE TABLE" sql statement
