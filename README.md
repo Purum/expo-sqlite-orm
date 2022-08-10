@@ -1,4 +1,5 @@
 !!  PRIMARY KEY COULD BE COMPLEX !!
+!!  add BulkInsertOrIgnore  !!
 
 # Expo SQLite ORM
 
