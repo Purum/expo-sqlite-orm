@@ -11,4 +11,8 @@ export function insertOrReplace(tableName, object) {
   return insert(tableName, object).replace('INSERT INTO', 'INSERT OR REPLACE INTO')
 }
 
-export default { insert, insertOrReplace }
+export function insertOrIgnore(tableName, object) {
+  return insert(tableName, object).replace('INSERT INTO', 'INSERT OR IGNORE INTO')
+}
+
+export default { insert, insertOrReplace, insertOrIgnore }
