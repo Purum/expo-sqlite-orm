@@ -64,6 +64,16 @@ export default class DatabaseLayer {
     }, { sqls: [], params: [] })
     return this.executeBulkSql(list.sqls, list.params)
   }
+  
+  bulkInsertOrIgnore(objs) {
+    const list = objs.reduce((accumulator, obj) => {
+      const params = Object.values(obj)
+      accumulator.sqls.push(QueryBuilder.insertOrIgnore(this.tableName, obj))
+      accumulator.params.push(params)
+      return accumulator
+    }, { sqls: [], params: [] })
+    return this.executeBulkSql(list.sqls, list.params)
+  }
 
   destroy(id) {
     const sql = QueryBuilder.destroy(this.tableName)
