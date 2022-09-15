@@ -1,4 +1,4 @@
-!!  PRIMARY KEY COULD BE COMPLEX !!
+!!  PRIMARY KEY MIGHT BE COMPLEX !!
 
 !!  add BulkInsertOrIgnore  !!
 
